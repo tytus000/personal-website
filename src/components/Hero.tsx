@@ -1,141 +1,92 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import ParticleGrid from "./ParticleGrid";
 import { siteConfig } from "@/data/content";
 
-function useTypingEffect(text: string, speed = 50, delay = 1000) {
-  const [displayed, setDisplayed] = useState("");
-  const [done, setDone] = useState(false);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      let i = 0;
-      const interval = setInterval(() => {
-        setDisplayed(text.slice(0, i + 1));
-        i++;
-        if (i >= text.length) {
-          clearInterval(interval);
-          setDone(true);
-        }
-      }, speed);
-      return () => clearInterval(interval);
-    }, delay);
-    return () => clearTimeout(timeout);
-  }, [text, speed, delay]);
-
-  return { displayed, done };
-}
-
 export default function Hero() {
-  const { displayed: nameText, done: nameDone } = useTypingEffect(
-    siteConfig.name,
-    60,
-    800
-  );
-  const { displayed: roleText } = useTypingEffect(
-    siteConfig.role,
-    30,
-    800 + siteConfig.name.length * 60 + 300
-  );
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <ParticleGrid />
+    <section className="relative min-h-screen flex items-end pb-24 sm:pb-32 overflow-hidden">
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-surface" />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        {/* Terminal-style intro */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="mb-6"
-        >
-          <span className="text-xs text-muted tracking-widest uppercase">
-            // initializing portfolio...
-          </span>
-        </motion.div>
+      {/* Grid pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
+        }}
+      />
 
-        {/* Name */}
-        <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-          className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-4"
-        >
-          <span className="text-foreground">{nameText}</span>
-          {!nameDone && (
-            <span className="cursor-blink text-cyan text-4xl sm:text-5xl md:text-7xl">
-              |
-            </span>
-          )}
-        </motion.h1>
-
-        {/* Role */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          className="text-lg sm:text-xl md:text-2xl text-cyan text-glow mb-8"
-        >
-          {roleText}
-          <span className="cursor-blink text-cyan">|</span>
-        </motion.p>
-
-        {/* Tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.5, duration: 0.6 }}
-          className="text-sm text-muted max-w-md mx-auto mb-12"
-        >
-          {siteConfig.tagline}
-        </motion.p>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 3, duration: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          <a
-            href="#projects"
-            className="group inline-flex items-center gap-2 px-6 py-3 border border-cyan text-cyan text-sm hover:bg-cyan hover:text-background transition-all duration-300"
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
+        <div className="max-w-4xl">
+          {/* Label */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-sm text-muted tracking-widest uppercase mb-8"
           >
-            <span className="text-muted group-hover:text-background">
-              $
-            </span>
-            view_projects
-            <span className="opacity-0 group-hover:opacity-100 transition-opacity">
-              --all
-            </span>
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-border text-muted text-sm hover:border-cyan hover:text-cyan transition-all duration-300"
+            {siteConfig.role}
+          </motion.p>
+
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05] mb-8"
           >
-            <span>$</span> contact --init
-          </a>
-        </motion.div>
+            Transforming organizations through{" "}
+            <span className="text-muted">intelligent systems</span>
+          </motion.h1>
+
+          {/* Tagline */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="text-lg sm:text-xl text-muted max-w-2xl leading-relaxed mb-12"
+          >
+            {siteConfig.tagline}
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.9 }}
+            className="flex flex-col sm:flex-row gap-4"
+          >
+            <a
+              href="#projects"
+              className="inline-flex items-center justify-center px-8 py-3.5 bg-foreground text-background text-sm font-medium hover:bg-accent transition-colors duration-200"
+            >
+              View Projects
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center px-8 py-3.5 border border-border text-sm font-medium text-muted hover:text-foreground hover:border-border-light transition-colors duration-200"
+            >
+              Get in Touch
+            </a>
+          </motion.div>
+        </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll line */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 3.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center"
       >
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="flex flex-col items-center gap-2"
-        >
-          <span className="text-xs text-muted">scroll</span>
-          <div className="w-px h-8 bg-gradient-to-b from-cyan to-transparent" />
-        </motion.div>
+          animate={{ scaleY: [0, 1, 0] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          className="w-px h-16 bg-gradient-to-b from-transparent via-border-light to-transparent origin-top"
+        />
       </motion.div>
     </section>
   );

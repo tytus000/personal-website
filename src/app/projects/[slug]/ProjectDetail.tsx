@@ -13,12 +13,12 @@ export default function ProjectDetail({ project }: { project: Project }) {
         transition={{ duration: 0.5 }}
       >
         <div className="flex items-center gap-4 mb-4">
-          <span className="text-xs text-cyan uppercase tracking-widest">
+          <span className="text-xs text-muted uppercase tracking-widest">
             {project.category}
           </span>
           <span className="text-xs text-muted">{project.year}</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-bold mb-6">
+        <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-8">
           {project.title}
         </h1>
       </motion.div>
@@ -28,28 +28,27 @@ export default function ProjectDetail({ project }: { project: Project }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="bg-surface border border-border p-6 mb-8"
+        className="border-t border-border pt-8 mb-12"
       >
         <p className="text-xs text-muted uppercase tracking-widest mb-4">
-          // overview
+          Overview
         </p>
-        <p className="text-muted text-sm leading-relaxed">
+        <p className="text-muted leading-relaxed max-w-2xl">
           {project.description}
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-12">
         {/* Features */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-surface border border-border p-6"
         >
-          <p className="text-xs text-muted uppercase tracking-widest mb-4">
-            // key features
+          <p className="text-xs text-muted uppercase tracking-widest mb-6">
+            Key Features
           </p>
-          <div className="space-y-3">
+          <div className="space-y-4">
             {project.features.map((feature, i) => (
               <motion.div
                 key={i}
@@ -58,7 +57,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                 transition={{ delay: 0.3 + i * 0.08 }}
                 className="flex items-start gap-3 text-sm"
               >
-                <span className="text-cyan text-xs mt-1">&#9656;</span>
+                <span className="text-muted mt-1.5 w-1 h-1 bg-muted rounded-full flex-shrink-0" />
                 <span className="text-muted">{feature}</span>
               </motion.div>
             ))}
@@ -70,26 +69,21 @@ export default function ProjectDetail({ project }: { project: Project }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="bg-surface border border-border p-6"
         >
-          <p className="text-xs text-muted uppercase tracking-widest mb-4">
-            // tech stack
+          <p className="text-xs text-muted uppercase tracking-widest mb-6">
+            Technology
           </p>
-          <div className="space-y-2">
+          <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech, i) => (
-              <motion.div
+              <motion.span
                 key={tech}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 + i * 0.05 }}
-                className="flex items-center gap-3 text-sm"
+                className="text-sm px-4 py-2 bg-surface text-muted rounded-full"
               >
-                <span className="text-cyan/40 text-xs font-mono w-6 text-right">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div className="h-px flex-1 bg-border" />
-                <span className="text-muted">{tech}</span>
-              </motion.div>
+                {tech}
+              </motion.span>
             ))}
           </div>
         </motion.div>

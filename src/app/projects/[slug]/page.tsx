@@ -14,7 +14,6 @@ export function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  // This is handled at render time
   return {};
 }
 
@@ -31,15 +30,14 @@ export default async function ProjectPage({
   }
 
   return (
-    <main className="min-h-screen pt-24 pb-16 px-6">
+    <main className="min-h-screen pt-28 pb-24 px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
-        {/* Back link */}
         <Link
           href="/#projects"
-          className="inline-flex items-center gap-2 text-sm text-muted hover:text-cyan transition-colors mb-12"
+          className="inline-flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors duration-200 mb-16"
         >
           <span>&#8592;</span>
-          <span>$ cd ..</span>
+          <span>Back to projects</span>
         </Link>
 
         <ProjectDetail project={project} />

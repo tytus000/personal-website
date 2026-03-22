@@ -1,8 +1,9 @@
 export const siteConfig = {
   name: "Krzysztof Plutecki",
   initials: "KP",
-  role: "Software Developer & AI Solutions Architect",
-  tagline: "Building enterprise-grade AI solutions",
+  role: "Digital Transformation & AI",
+  tagline:
+    "I help organizations harness artificial intelligence and modern technology to fundamentally transform how they operate.",
   email: "hello@plutecki.dev",
   location: "Poland",
   social: {
@@ -12,24 +13,24 @@ export const siteConfig = {
 };
 
 export const aboutText = [
-  "I specialize in software development, project management, and crafting custom enterprise-grade AI solutions that drive real business value.",
-  "With a deep understanding of both technical architecture and business strategy, I bridge the gap between complex technology and practical implementation.",
-  "I thrive on solving problems that others find too complex — from building scalable distributed systems to designing AI pipelines that transform how organizations operate.",
+  "I specialize in digital transformation strategy, AI implementation, and building intelligent systems that drive measurable business outcomes.",
+  "With deep expertise across AI agents, large language models, and enterprise architecture, I bridge the gap between cutting-edge technology and practical business value.",
+  "I work with organizations to identify high-impact opportunities for AI adoption — from automating complex workflows to deploying autonomous agents that fundamentally change how teams operate.",
 ];
 
 export const skills = [
-  "TypeScript",
+  "AI Strategy & Implementation",
+  "LLM & Agent Systems",
+  "Process Automation",
+  "Digital Transformation",
   "Python",
+  "TypeScript",
   "React / Next.js",
-  "Node.js",
-  "AI/ML Solutions",
-  "LLM Integration",
   "Cloud Architecture",
-  "DevOps / CI/CD",
-  "Project Management",
   "System Design",
-  "PostgreSQL",
-  "Docker / K8s",
+  "Project Management",
+  "DevOps / CI/CD",
+  "Data Engineering",
 ];
 
 export interface Experience {
@@ -86,7 +87,14 @@ export const projects: Project[] = [
       "Enterprise document processing system powered by LLMs — automated extraction, classification, and routing of business documents.",
     description:
       "Built an end-to-end document intelligence platform that processes thousands of documents daily. The system uses a combination of OCR, custom-trained models, and LLM chains to extract structured data from unstructured documents, classify them by type, and route them to appropriate business workflows.",
-    technologies: ["Python", "LangChain", "FastAPI", "PostgreSQL", "Redis", "Docker"],
+    technologies: [
+      "Python",
+      "LangChain",
+      "FastAPI",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+    ],
     features: [
       "Multi-format document ingestion (PDF, images, emails)",
       "Custom LLM chains for data extraction",
@@ -104,7 +112,14 @@ export const projects: Project[] = [
       "Real-time analytics platform for monitoring business KPIs with customizable widgets and automated reporting.",
     description:
       "Designed and built a comprehensive analytics dashboard serving 500+ daily active users across multiple departments. Features real-time data streaming, customizable widget layouts, and automated report generation with export capabilities.",
-    technologies: ["TypeScript", "React", "Next.js", "D3.js", "WebSocket", "AWS"],
+    technologies: [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "D3.js",
+      "WebSocket",
+      "AWS",
+    ],
     features: [
       "Real-time data streaming via WebSockets",
       "Drag-and-drop widget customization",
@@ -122,7 +137,14 @@ export const projects: Project[] = [
       "CI/CD pipeline automation toolkit that reduced deployment time by 80% and eliminated manual configuration errors.",
     description:
       "Created a comprehensive DevOps automation suite that standardized deployment processes across 20+ microservices. Includes infrastructure-as-code templates, automated testing pipelines, and monitoring integrations.",
-    technologies: ["Go", "Terraform", "GitHub Actions", "Docker", "Kubernetes", "Prometheus"],
+    technologies: [
+      "Go",
+      "Terraform",
+      "GitHub Actions",
+      "Docker",
+      "Kubernetes",
+      "Prometheus",
+    ],
     features: [
       "One-click deployment pipelines",
       "Infrastructure-as-code templates",
@@ -140,7 +162,14 @@ export const projects: Project[] = [
       "White-label conversational AI platform enabling businesses to deploy custom chatbots trained on their knowledge base.",
     description:
       "Architected a multi-tenant chatbot platform that allows businesses to create, train, and deploy AI assistants using their own documentation and data. Features include RAG-based retrieval, conversation analytics, and seamless website integration.",
-    technologies: ["Python", "TypeScript", "Next.js", "Pinecone", "OpenAI", "Stripe"],
+    technologies: [
+      "Python",
+      "TypeScript",
+      "Next.js",
+      "Pinecone",
+      "OpenAI",
+      "Stripe",
+    ],
     features: [
       "RAG-based knowledge retrieval",
       "Multi-language support",
