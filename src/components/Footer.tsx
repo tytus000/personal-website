@@ -1,16 +1,28 @@
-"use client";
-
 import { siteConfig } from "@/data/content";
 
 export default function Footer() {
   return (
-    <footer className="py-8 px-6 lg:px-8 border-t border-border">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted">
-        <p>
-          &copy; {new Date().getFullYear()} {siteConfig.name}
-        </p>
-        <p>{siteConfig.location}</p>
-      </div>
+    <footer className="mt-12 pt-8 pb-12 text-muted text-sm text-center">
+      <p>
+        &copy; {new Date().getFullYear()} {siteConfig.name} ·{" "}
+        <a
+          href={siteConfig.social.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-muted hover:text-white no-underline"
+        >
+          LinkedIn
+        </a>{" "}
+        ·{" "}
+        <a
+          href={siteConfig.social.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-muted hover:text-white no-underline"
+        >
+          GitHub
+        </a>
+      </p>
     </footer>
   );
 }
