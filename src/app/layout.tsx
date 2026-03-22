@@ -3,9 +3,9 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "Krzysztof Plutecki — Software Developer & AI Solutions Architect",
+  title: "Krzysztof Plutecki — Digital Transformation & AI",
   description:
-    "Portfolio of Krzysztof Plutecki — software development, project management, and custom enterprise-grade AI solutions.",
+    "Krzysztof Plutecki — helping organizations harness AI and modern technology to transform how they operate.",
 };
 
 export default function RootLayout({
@@ -15,7 +15,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="antialiased">
-      <body className="min-h-screen bg-background text-foreground font-mono grid-overlay scanlines">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="min-h-screen bg-background text-foreground">
         <Navbar />
         {children}
       </body>

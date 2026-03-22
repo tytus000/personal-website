@@ -6,10 +6,10 @@ import Link from "next/link";
 import { siteConfig } from "@/data/content";
 
 const navLinks = [
-  { href: "#about", label: "about" },
-  { href: "#experience", label: "experience" },
-  { href: "#projects", label: "projects" },
-  { href: "#contact", label: "contact" },
+  { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
+  { href: "#projects", label: "Projects" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -29,18 +29,13 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/90 backdrop-blur-md border-b border-border"
+          ? "bg-background/80 backdrop-blur-xl border-b border-border"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link
-          href="/"
-          className="text-cyan font-bold text-lg tracking-wider glitch-hover"
-        >
-          <span className="text-muted">&gt; </span>
-          {siteConfig.initials}
-          <span className="cursor-blink text-cyan">_</span>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+        <Link href="/" className="text-foreground font-semibold text-sm tracking-wide">
+          {siteConfig.name}
         </Link>
 
         {/* Desktop links */}
@@ -52,9 +47,9 @@ export default function Navbar() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * i + 0.3 }}
-              className="text-sm text-muted hover:text-cyan transition-colors duration-200"
+              className="text-sm text-muted hover:text-foreground transition-colors duration-200"
             >
-              <span className="text-cyan/50">0{i + 1}.</span> {link.label}
+              {link.label}
             </motion.a>
           ))}
         </div>
@@ -62,22 +57,22 @@ export default function Navbar() {
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-cyan p-2"
+          className="md:hidden text-foreground p-2"
           aria-label="Toggle menu"
         >
           <div className="space-y-1.5">
             <span
-              className={`block w-6 h-px bg-cyan transition-transform ${
+              className={`block w-5 h-px bg-foreground transition-transform duration-300 ${
                 mobileOpen ? "rotate-45 translate-y-[7px]" : ""
               }`}
             />
             <span
-              className={`block w-6 h-px bg-cyan transition-opacity ${
+              className={`block w-5 h-px bg-foreground transition-opacity duration-300 ${
                 mobileOpen ? "opacity-0" : ""
               }`}
             />
             <span
-              className={`block w-6 h-px bg-cyan transition-transform ${
+              className={`block w-5 h-px bg-foreground transition-transform duration-300 ${
                 mobileOpen ? "-rotate-45 -translate-y-[7px]" : ""
               }`}
             />
@@ -92,17 +87,17 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-surface border-b border-border overflow-hidden"
+            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
           >
-            <div className="flex flex-col px-6 py-4 gap-4">
-              {navLinks.map((link, i) => (
+            <div className="flex flex-col px-6 py-6 gap-5">
+              {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-sm text-muted hover:text-cyan transition-colors"
+                  className="text-sm text-muted hover:text-foreground transition-colors"
                 >
-                  <span className="text-cyan/50">0{i + 1}.</span> {link.label}
+                  {link.label}
                 </a>
               ))}
             </div>

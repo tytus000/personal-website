@@ -5,60 +5,61 @@ import { siteConfig } from "@/data/content";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 px-6 bg-surface/30">
-      <div className="max-w-3xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="text-xs text-cyan mb-4 tracking-widest">04. contact()</p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            Let&apos;s Build Something
-          </h2>
-          <p className="text-muted text-sm leading-relaxed mb-10 max-w-md mx-auto">
-            I&apos;m always interested in hearing about new projects, especially
-            those involving AI solutions and complex technical challenges.
-          </p>
+    <section id="contact" className="py-24 sm:py-32 px-6 lg:px-8 border-t border-border">
+      <div className="max-w-7xl mx-auto">
+        <div className="max-w-2xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-sm text-muted tracking-widest uppercase mb-4">
+              Contact
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-6">
+              Let&apos;s work together
+            </h2>
+            <p className="text-muted leading-relaxed mb-10">
+              I&apos;m always interested in hearing about new projects, especially
+              those involving AI implementation, digital transformation, and
+              complex technical challenges.
+            </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href={`mailto:${siteConfig.email}`}
-              className="group inline-flex items-center gap-2 px-8 py-3 border border-cyan text-cyan text-sm hover:bg-cyan hover:text-background transition-all duration-300"
+              className="inline-flex items-center justify-center px-8 py-3.5 bg-foreground text-background text-sm font-medium hover:bg-accent transition-colors duration-200"
             >
-              <span className="text-muted group-hover:text-background">$</span>
-              send_message
+              Get in Touch
             </a>
-          </div>
 
-          {/* Social links */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="flex justify-center gap-6 mt-8"
-          >
-            <a
-              href={siteConfig.social.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted hover:text-cyan transition-colors text-sm"
+            {/* Social links */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="flex gap-6 mt-10"
             >
-              github
-            </a>
-            <span className="text-border">|</span>
-            <a
-              href={siteConfig.social.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted hover:text-cyan transition-colors text-sm"
-            >
-              linkedin
-            </a>
+              <a
+                href={siteConfig.social.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted hover:text-foreground transition-colors duration-200"
+              >
+                GitHub
+              </a>
+              <a
+                href={siteConfig.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted hover:text-foreground transition-colors duration-200"
+              >
+                LinkedIn
+              </a>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
